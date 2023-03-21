@@ -1,4 +1,5 @@
 import pygame
+from pygame import mixer
 import random
 import math
 # Initialize Pygame
@@ -12,7 +13,13 @@ bullet=pygame.image.load('riflebullet.png')
 simo= pygame.image.load('player.png')
 russian= pygame.image.load('russian.png')
 background = pygame.image.load('snow background.png')
+font=pygame.font.Font('SegaArcadeFontRegular.ttf',25)
+fontbig=pygame.font.Font('ARCADECLASSIC.ttf',80)
 
+mixer.music.load('gameover.wav')
+mixer.music.play(-1)
+bulletsound=mixer.Sound('shoot.wav')
+deadsound=mixer.Sound('boom.wav')
 
 # Define window dimensions and positions
 
@@ -34,8 +41,7 @@ bulletychange=10
 bulletstate='ready'
 bulletmag=7
 scorev=0
-font=pygame.font.Font('SegaArcadeFontRegular.ttf',25)
-fontbig=pygame.font.Font('ARCADECLASSIC.ttf',80)
+
 # Create game window
 
 game_window = pygame.display.set_mode((window_width, window_height))
@@ -89,6 +95,7 @@ while running:
                 poschange=speed
             if event.key==pygame.K_s:
                 bulletx=playerx
+                bulletsound.play()
                 fire(bulletx,bullety)
                 bulletmag-=1
         if event.type==pygame.KEYUP:
@@ -141,6 +148,7 @@ while running:
     coll= collision(enemyx,enemyy,bulletx,bullety)
     death=collision(playerx,playery,enemyx,enemyy)
     if coll==True and death==False:
+            deadsound.play()
             enemyx=random.randint(0,700)
             bullety=playery
             bulletstate='ready'
@@ -153,6 +161,7 @@ while running:
             enemyspeed+=0.10
     death=collision(playerx,playery,enemyx,enemyy)
     if death:
+        deadsound.play()
         enemyy=100
         enemyspeed=0
         gameover()
@@ -163,7 +172,7 @@ while running:
 
     if(bulletmag==0):
         if (bullety==0):
-            gameover()
+            
             enemyxchange=0
             enemyychange=0
             bulletspeed=0
