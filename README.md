@@ -1,13 +1,37 @@
-# The_White_Death
+Installation
 
-#HOW TO PLAY
-1. MOVE LEFT-press a
-2. MOVE RIGHT-press d
-3. SHOOT-press s
+1. Clone the repository to your local machine.
+2. Make sure Pygame is installed for editing the code. If not, install it using the command pip install pygame.
+3. To play the game, download and extract the .zip folder and run the .exe file provided.
 
-#GAME RULES
-1. For every 10 enemies you kill, you get reaload in your Magazine (your bullets are restored to 7).
-2. After every 10th enemy is killed, you get free shots till you kill next enemy.
-3. if you run out of bullet or enemy reaches you, it is game over.
-4. Each successfull kill restores one bullet, maintaining the number of bullets at a constant number.
-5. After each kill, the Enemy's speed is increased slightly, changing the difficulty over time.
+
+How to Play
+
+1. Use the a and d keys to move the player left and right respectively.
+2. Use the s key to fire bullets at the enemy.
+3. The game is over when the enemy reaches the player or the player runs out of bullets.
+4. Every time the player kills the enemy, the player earns a point and gains an additional bullet in the magazine.
+
+
+Controls
+
+Move left: left arrow key or A
+Move right: right arrow key or D
+Fire: down arrow key or S
+
+
+Resources Used
+
+Images: bullet.png, riflebullet.png, player.png, russian.png, and snow background.png.
+Sounds: gameover.wav, shoot.wav, and boom.wav.
+Fonts: SegaArcadeFontRegular.ttf and ARCADECLASSIC.ttf.
+
+
+Credits
+
+This game was created by [username].
+
+
+License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
